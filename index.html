@@ -189,39 +189,47 @@
 			<script src="assets/js/main.js"></script>
 		
 			<script>
-				debugger;
-				// Get the link elements by their IDs
-				var projectsLink = document.getElementById("projectsLink");
-				var certificationsLink = document.getElementById("certificationsLink");
-			
-				// Define the text you want to display in the URL
-				var projectsText = "Projects";
-				var certificationsText = "Certifications";
-			
-				// Set up event listeners to change the URL text
-				projectsLink.addEventListener("click", function (e) {
-					e.preventDefault();
-					window.history.pushState({}, projectsText, "/projects");
-					document.title = projectsText;
-				});
-			
-				certificationsLink.addEventListener("click", function (e) {
-					e.preventDefault();
-					window.history.pushState({}, certificationsText, "/certifications");
-					document.title = certificationsText;
-				});
-			
-				// Listen for the popstate event to handle browser back/forward buttons
-				window.addEventListener("popstate", function (e) {
-					var path = window.location.pathname;
-			
-					if (path.endsWith("/projects")) {
-						document.title = projectsText;
-					} else if (path.endsWith("/certifications")) {
-						document.title = certificationsText;
-					}
-				});
-			</script>
+    // Get the link elements by their IDs
+    var projectsLink = document.getElementById("projectsLink");
+    var certificationsLink = document.getElementById("certificationsLink");
+
+    // Define the desired link text
+    var projectsText = "Projects";
+    var certificationsText = "Certifications";
+
+    // Function to update URL and link text
+    function updateURLAndLinkText(linkText, urlPath) {
+        history.pushState({}, "", urlPath);
+        document.title = linkText;
+    }
+
+    // Function to handle the "Projects" link
+    function handleProjectsLink(e) {
+        e.preventDefault();
+        updateURLAndLinkText(projectsText, "/projects");
+    }
+
+    // Function to handle the "Certifications" link
+    function handleCertificationsLink(e) {
+        e.preventDefault();
+        updateURLAndLinkText(certificationsText, "/certifications");
+    }
+
+    // Add click event listeners to the links
+    projectsLink.addEventListener("click", handleProjectsLink);
+    certificationsLink.addEventListener("click", handleCertificationsLink);
+
+    // Listen for the popstate event to handle browser back/forward buttons
+    window.addEventListener("popstate", function (e) {
+        var path = window.location.pathname;
+
+        if (path.endsWith("/projects")) {
+            document.title = projectsText;
+        } else if (path.endsWith("/certifications")) {
+            document.title = certificationsText;
+        }
+    });
+</script>
 			
 	</body>
 </html>
