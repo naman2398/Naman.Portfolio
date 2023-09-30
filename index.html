@@ -194,13 +194,9 @@
   var certificationLink = document.getElementById("certificationLink");
 
   // Remove the "index.html" part from the href attribute
-  projectsLink.href = projectsLink.href.replace("index.html", "Projects");
-  certificationLink.href = certificationLink.href.replace("certifications.html", "Certifications");
+  projectsLink.href = projectsLink.href.replace("index.html", "");
+  certificationLink.href = certificationLink.href.replace("certifications.html", "");
 
-  // Optionally, you can also update the link text to hide "index.html"
-  projectsLink.innerHTML = "Projects";
-  certificationLink.innerHTML = "Certifications";
 </script>
-
 	</body>
 </html>
