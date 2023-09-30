@@ -38,7 +38,7 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li class="active"><a href="https://naman2398.github.io/Naman.Portfolio/index.html">Projects</a></li>
+							<li class="active"><a id="projectsLink" href="https://naman2398.github.io/Naman.Portfolio/index.html">Projects</a></li>
 							<li><a href="certifications.html">Certifications</a></li>
 							<li><a href="contact.html">Contact</a></li>
 						</ul>
@@ -187,6 +187,17 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+		
+<script>
+  // Get the link element by its ID
+  var projectsLink = document.getElementById("projectsLink");
+
+  // Remove the "index.html" part from the href attribute
+  projectsLink.href = projectsLink.href.replace("index.html", "");
+
+  // Optionally, you can also update the link text to hide "index.html"
+  projectsLink.innerHTML = "Projects";
+</script>
 
 	</body>
 </html>
