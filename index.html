@@ -39,7 +39,7 @@
 					<nav id="nav">
 						<ul class="links">
 							<li class="active"><a id="projectsLink" href="https://naman2398.github.io/Naman.Portfolio/index.html">Projects</a></li>
-							<li><a href="certifications.html">Certifications</a></li>
+							<li><a id="certificationLink" href="certifications.html">Certifications</a></li>
 							<li><a href="contact.html">Contact</a></li>
 						</ul>
 						<ul class="icons">
@@ -191,12 +191,15 @@
 <script>
   // Get the link element by its ID
   var projectsLink = document.getElementById("projectsLink");
+  var certificationLink = document.getElementById("certificationLink");
 
   // Remove the "index.html" part from the href attribute
   projectsLink.href = projectsLink.href.replace("index.html", "");
+	 certificationLink.href = certificationLink.href.replace("certifications.html", "");
 
   // Optionally, you can also update the link text to hide "index.html"
   projectsLink.innerHTML = "Projects";
+	  certificationLink.innerHTML = "Certifications";
 </script>
 
 	</body>
