@@ -188,12 +188,40 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 		
-<script>
-  // Get the link element by its ID
-  var projectsLink = document.getElementById("projectsLink");
-
-  // Remove the "index.html" part from the href attribute
-  projectsLink.href = projectsLink.href.replace("index.html", "");
-</script>
+			<script>
+				debugger;
+				// Get the link elements by their IDs
+				var projectsLink = document.getElementById("projectsLink");
+				var certificationsLink = document.getElementById("certificationsLink");
+			
+				// Define the text you want to display in the URL
+				var projectsText = "Projects";
+				var certificationsText = "Certifications";
+			
+				// Set up event listeners to change the URL text
+				projectsLink.addEventListener("click", function (e) {
+					e.preventDefault();
+					window.history.pushState({}, projectsText, "/projects");
+					document.title = projectsText;
+				});
+			
+				certificationsLink.addEventListener("click", function (e) {
+					e.preventDefault();
+					window.history.pushState({}, certificationsText, "/certifications");
+					document.title = certificationsText;
+				});
+			
+				// Listen for the popstate event to handle browser back/forward buttons
+				window.addEventListener("popstate", function (e) {
+					var path = window.location.pathname;
+			
+					if (path.endsWith("/projects")) {
+						document.title = projectsText;
+					} else if (path.endsWith("/certifications")) {
+						document.title = certificationsText;
+					}
+				});
+			</script>
+			
 	</body>
 </html>
