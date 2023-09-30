@@ -217,8 +217,9 @@
 
     // Add click event listeners to the links
     projectsLink.addEventListener("click", handleProjectsLink);
+				if(certificationsLink !=null){
     certificationsLink.addEventListener("click", handleCertificationsLink);
-
+				}
     // Listen for the popstate event to handle browser back/forward buttons
     window.addEventListener("popstate", function (e) {
         var path = window.location.pathname;
